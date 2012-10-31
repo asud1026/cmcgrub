@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% comment %}
+This is the template for all portal pages.
+{% endcomment %}
+
+{% block head %}
+	<title>Claremont Grub | {% block title %}{% endblock %}</title>
+{% endblock %}
+
+{% block body %}
+	<header>
+		<h1>Claremont Grub | Web Portal</h1>
+	</header>
+	
+	<section>
+		<u1>
+			<li><a href="/">home</a></li>
+			<li><a href="/logout/">logout</a><li>
+		</u1>
+	</section>
+	
+	{% block content %}{% endblock %}
+	
+	<footer>
+		<span>© 2012, Race To 1000</span>
+	</footer>
+{% endblock %}
