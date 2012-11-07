@@ -13,8 +13,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/users/jnewbry/Documents/projects/testsite/sqlite3.sql',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/Users/evan/desktop/python/virtualenvs/django-1.4-env/testsite/sqlite3.sql',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -25,7 +25,10 @@ DATABASES = {
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
-# In a Windows environment this must be set to your system time zone.
+# On Unix systems, a value of None will cause Django to use the same
+# timezone as the operating system.
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
 TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
@@ -39,7 +42,7 @@ SITE_ID = 1
 USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
+# calendars according to the current locale
 USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
@@ -91,7 +94,7 @@ STATICFILES_FINDERS = (
 LOGIN_URL = '/login/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'ofog1zv6wlr&amp;x%9z8&amp;oa%tpg(mnq#w%78(@70bm!ygnh@2wz%%'
+SECRET_KEY = '%=m&qpp$4x#niwztxt8#0z%33$@4vve08&9y92r5e5$eyhjj0h'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -139,26 +142,20 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
 	#don't know why this is necessary yet
-	'portal'
+	'portal',
 )
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
+# the site admins on every HTTP 500 error.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
-            'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         }
     },
