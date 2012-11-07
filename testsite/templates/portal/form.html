@@ -1,0 +1,22 @@
+{% extends "portal/index.html" %}
+{% block content %}
+<div class="new">
+  <h2> Place an order </h2>
+  <form method="post" action="/confirm/">
+  	{% csrf_token %}
+  <label for="title">Name</label>
+  <input type="text" name="title" id="title">
+  <label for="slug">Item</label>
+  <input type="text" name="slug" id="slug">
+  <input type="submit" value="Place Order">
+  </form>
+</div>
+<div class="list">
+  <h2> Notes </h2>
+  <ol id="notes">
+    {% for object in object_list %}
+    <li><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></li>
+    {% endfor %}
+  </ol>
+</div>
+{% endblock %}

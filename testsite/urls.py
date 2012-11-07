@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import *
 
 #don't know difference between previous line and 
 from django.conf.urls.defaults import *
@@ -6,8 +6,8 @@ from django.conf.urls.defaults import *
 from testsite.views import *
 
 # Uncomment the next two lines to enable the admin:
-#from django.contrib import admin
-#admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+     url(r'^admin/', include(admin.site.urls)),
 
 
 	#MY STUFF
@@ -29,6 +29,7 @@ urlpatterns = patterns('',
 	
 	#Web portal
 	(r'^portal/', include('portal.urls')),
+	(r'^confirm/', include('portal.urls')),
 	
 	# Serve static content
 	#Not sure how this works
