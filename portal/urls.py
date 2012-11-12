@@ -2,12 +2,11 @@ from django.conf.urls.defaults import *
 from portal.views import *
 from models import Note
 
-urlpatterns = patterns('', 
+urlpatterns = patterns('portal.views', 
 
-	#Main web portal entrance.
-	(r'^confirm/$', confirm),
-
-
-	(r'^$', portal_main_page),
+	#Main web portal entrance.	
+	(r'^$', 'portal_main_page'),
+	(r'^add/$', 'add'),
+	(r'^confirm/$', 'confirm'),
 	
 )

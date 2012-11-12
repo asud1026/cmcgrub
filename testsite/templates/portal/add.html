@@ -1,0 +1,20 @@
+{% extends "portal/index.html" %}
+
+{% block content %}
+
+	{% if error_message %}
+		<p>
+			<strong>
+				{{ error_message }}
+			</strong>
+		</p>
+	{% endif %}
+
+	<form action="add/" method="post">
+		{% csrf_token %}
+			{{ form.as_p }}
+			
+			<button type="submit" class="btn"> Consider it Noted!</button>
+	</form>
+
+{% endblock %}
