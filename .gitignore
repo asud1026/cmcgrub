@@ -1,2 +1,11 @@
 testsite/settings.py
 *.pyc
+*.swo
+*.swp
+*.swn
+logs/
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+*~
