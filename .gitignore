@@ -1,1 +1,2 @@
 testsite/settings.py
+*.pyc

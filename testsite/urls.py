@@ -29,6 +29,9 @@ urlpatterns = patterns('',
 	
 	#Web portal
 	(r'^portal/', include('portal.urls')),
+
+	#Hub portal
+	(r'^hub/', include('hub.urls')),
 	
 	# Serve static content
 	#Not sure how this works

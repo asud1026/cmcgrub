@@ -5,11 +5,13 @@ from django.http import HttpResponseRedirect, HttpResponseServerError
 from django.template import RequestContext
 from django.core.context_processors import csrf
 
+
 @login_required
 def portal_main_page(request):
     form = NoteForm() # An unbound form
     return render_to_response('portal/add.html', {'form': form,}, context_instance=RequestContext(request))
 
+#logout landing page
 def logout_page(request):
 	'''
 	Log user out and re-direct them to the main page.
@@ -17,6 +19,7 @@ def logout_page(request):
 	logout(request)
 	return HttpResponseRedirect('/')
 
+#main order form view
 @login_required
 def add(request):
     if request.method == 'POST':
@@ -31,12 +34,7 @@ def add(request):
      	    form = NoteForm() # An unbound form
     return render_to_response('portal/add.html', {'form': form,}, context_instance=RequestContext(request))
 
+#confirmation page after placing order
 def confirm(request):
     return render_to_response('portal/confirm.html')
-
-#implement this later on hub terminal view
-#def index(request):
-#    latest_notes_list = Note.objects.all().order_by('-pub_date')[:20]
-#    return render_to_response('notes/index.html', {'latest_notes_list': latest_notes_list})
-
 
