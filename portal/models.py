@@ -30,4 +30,3 @@ class Note(models.Model):
 class NoteForm(ModelForm):
     class Meta:
         model = Note
-

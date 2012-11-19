@@ -20,7 +20,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
 
-
 	#MY STUFF
 	(r'^$', main_page),
 	#Login / logout
@@ -32,9 +31,13 @@ urlpatterns = patterns('',
 
 	#Hub portal
 	(r'^hub/', include('hub.urls')),
+	(r'^confirm/', include('portal.urls')),
 	
 	# Serve static content
 	#Not sure how this works
 	(r'^static/(?P<path>.*)$', 'django.views.static.serve',
 		{'document_root': 'static'}),
+
+	#Registration
+	(r'^accounts/', include('registration.backends.default.urls')),
 )

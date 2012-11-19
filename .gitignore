@@ -1,11 +1,12 @@
-testsite/settings.py
 *.pyc
 *.swo
 *.swp
 *.swn
 logs/
-.DS_Store?
+testsite/settings.py
+.DS_Store
 ehthumbs.db
 Icon?
 Thumbs.db
 *~
+

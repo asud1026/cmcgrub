@@ -5,13 +5,14 @@ from django.http import HttpResponseRedirect, HttpResponseServerError
 from django.template import RequestContext
 from django.core.context_processors import csrf
 
-
 @login_required
 def portal_main_page(request):
-    form = NoteForm() # An unbound form
-    return render_to_response('portal/add.html', {'form': form,}, context_instance=RequestContext(request))
-
-#logout landing page
+	"""
+	If users are authenticated, direct them to the main page. Otherwise, take
+	them to the login page.
+	"""
+	return render_to_response('portal/form.html')
+	
 def logout_page(request):
 	'''
 	Log user out and re-direct them to the main page.

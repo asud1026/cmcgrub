@@ -8,5 +8,6 @@ urlpatterns = patterns('portal.views',
 	(r'^$', 'portal_main_page'),
 	(r'^add/$', 'add'),
 	(r'^confirm/$', 'confirm'),
+
 	
 )
