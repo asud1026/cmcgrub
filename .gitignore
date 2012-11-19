@@ -1,0 +1,11 @@
+*.pyc
+*.swo
+*.swp
+*.swn
+logs/
+testsite/settings.py
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+*-

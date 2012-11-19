@@ -1,0 +1,18 @@
+{% extends "portal/portal.html" %}
+
+{% comment %}
+
+Main page of the portal.
+
+{% endcomment %}
+
+{% block title %}
+Portal
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Welcome to the Claremont Grub, {{ user.username }}</h2>
+        <p>Find everything you need below.</p>
+    </section>
+{% endblock %}
