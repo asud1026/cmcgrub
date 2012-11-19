@@ -1,6 +1,21 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% comment %}
 
-{% block content %}
-Index page
+Main page of testsite's website. Not sure if this is the right index.html
+file or if this should be the post/index.html file... will know soon.
+
+{% endcomment %}
+
+{% block head %}
+	<title>Claremont Grub</title>
+{% endblock %}
+
+{% block body %}
+	<header>
+		<h1>Claremont Grub</h1>
+	</header>
+	
+	<section>
+		<p>Welcome to the Claremont Grub. Please click <a href="/portal/">here</a> to log into the Claremont Grub.</p>
+	</section>
 {% endblock %}
