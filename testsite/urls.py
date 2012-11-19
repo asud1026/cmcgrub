@@ -1,5 +1,5 @@
 from django.conf.urls import *
-
+from django.conf import settings
 #don't know difference between previous line and 
 from django.conf.urls.defaults import *
 
@@ -35,9 +35,15 @@ urlpatterns = patterns('',
 	
 	# Serve static content
 	#Not sure how this works
-	(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-		{'document_root': 'static'}),
-
+	#(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+	#	{'document_root': 'static'}),
+	
+	(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
+	{'document_root': settings.STATIC_ROOT, 'show_indexes':True}),
+        
+	(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
+	{'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
+        
 	#Registration
 	(r'^accounts/', include('registration.backends.default.urls')),
 )

@@ -10,8 +10,8 @@ Main page of the hub view
 	<ul>	  
 	 {% for note in latest_notes_list %}
 		<li>
+			<table class="table">
 			{{ note.body }}
-		
 			 <input type="checkbox" class="remove" />
 			 	  5 minutes
 			 <input type="checkbox" class="remove" />
@@ -19,9 +19,22 @@ Main page of the hub view
 			 <input type="checkbox" class="remove" />
 			 	  15 minutes 	
 			<button onclick="JavaScript:alert('Well done!')">Approve Order</button>
-			
+			</table>
 		</li>
+		
 	 {% endfor %}
+	 <form>
+  <fieldset>
+    <legend>Legend</legend>
+    <label>Label name</label>
+    <input type="text" placeholder="Type something?">
+    <span class="help-block">Example block-level help text here.</span>
+    <label class="checkbox">
+      <input type="checkbox"> Check me out
+    </label>
+    <button type="submit" class="btn">Submit</button>
+  </fieldset>
+</form>
 	</ul>
 {% endif %}
 {% endblock %}
