@@ -34,12 +34,10 @@ urlpatterns = patterns('',
 	(r'^confirm/', include('portal.urls')),
 	
 	# Serve static content
-	#Not sure how this works
-	#(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-	#	{'document_root': 'static'}),
-	
-	(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
-	{'document_root': settings.STATIC_ROOT, 'show_indexes':True}),
+	url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+                       
+	#(r'^static/(?P<path>.*)$', 'django.views.static.serve', 
+	#{'document_root': settings.STATIC_ROOT, 'show_indexes':True}),
         
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
 	{'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
