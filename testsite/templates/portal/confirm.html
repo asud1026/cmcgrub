@@ -1,1 +1,28 @@
   <h2> Confirmation Page </h2>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  
+  <script>
+  $(document).ready(function(){
+    
+    $("p").click(function () { 
+      $(this).slideUp(); 
+    });
+    $("p").hover(function () {
+      $(this).addClass("hilite");
+    }, function () {
+      $(this).removeClass("hilite");
+    });
+
+  });
+  </script>
+  <style>
+  p { color:red; margin:5px; cursor:pointer; }
+  p.hilite { background:gray; }
+  </style>
+</head>
+<body>
+  <p>First Paragraph</p>
+  <p>Second Paragraph</p>
+  <p>Yet one more Paragraph</p>
+</body>

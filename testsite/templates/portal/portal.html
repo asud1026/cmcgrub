@@ -8,6 +8,7 @@ This is the main template for all portal pages.
 {% endblock %}
 
 {% block body %}
+ <div class="container">
     <header>
         <h1>Claremont Grub | Web Portal</h1>
     </header>
@@ -18,10 +19,16 @@ This is the main template for all portal pages.
             <li><a href="/logout/">logout</a></li>
         </ul>
     </section>
+ </div>
 
+ <div class="container">
     {% block content %}{% endblock %}
-
+ </div>
+ 
+<div class="container">
     <footer>
         <span>© 2010, Claremont Grub Crew</span>
     </footer>
+
+  </div>
 {% endblock %}
