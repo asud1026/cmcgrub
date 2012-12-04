@@ -9,9 +9,6 @@ from testsite.views import *
 from django.contrib import admin
 admin.autodiscover()
 
-#email login
-from django.views.generic.simple import direct_to_template
-
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'testsite.views.home', name='home'),
@@ -46,5 +43,5 @@ urlpatterns = patterns('',
 	{'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
         
 	#Registration
-	(r'^accounts/', include('registration.urls')),
+	(r'^accounts/', include('registration.backends.default.urls')),
 )

@@ -20,7 +20,7 @@ DATABASES = {
         'HOST': 'powerful-bayou-4139.herokuapp.com',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     } ,
-'default': {    
+'local': {    
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'grubcrew',                      # Or path to database file if using sqlite3.
         'USER': 'joe',                      # Not used with sqlite3.
@@ -28,7 +28,7 @@ DATABASES = {
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     } ,
-'testing': {    
+'default': {    
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'd297mirlbdr18o',                      # Or path to database file if using sqlite3.
         'USER': 'cygnzzyjsqolpo',                      # Not used with sqlite3.
@@ -175,16 +175,10 @@ INSTALLED_APPS = (
 	'portal',
 
     #removed registration because no module with this name
-	'registration',
+	#'django-registration/registration',
 	'hub',
 )
 
-#additional settings for email confirmation
-ACCOUNT_ACTIVATION_DAYS = 2
-EMAIL_HOST = 'localhost'
-DEFAULT_FROM_EMAIL = 'joenewbry@gmail.com'
-LOGIN_REDIRECT_URL = '/'
-    
 ACCOUNT_ACTIVATION_DAYS = 7
 
 # A sample logging configuration. The only tangible logging
@@ -209,15 +203,5 @@ LOGGING = {
         },
     }
 }
-
-
-# Parse database configuration from $DATABASE_URL
-# Returns NONE --- NEEDS FIXING
-
-# import dj_database_url
-# DATABASES = {}
-# DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
-# print "PRINTING DATABASE", os.environ.get('DATABASE_URL')
-
 
 
