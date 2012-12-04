@@ -1,9 +1,6 @@
-Your activation key: {{ activation_key }}
+{% load i18n %}
+{% trans "Activate account at" %} {{ site.name }}:
 
-Please use this link to activate your account:
+http://{{ site.domain }}{% url registration_activate activation_key %}
 
-http://localhost:8000/accounts/activate/{{ activation_key }}/
-
-After activation you can login to the site:
-
-http://localhost:8000/accounts/login/
+{% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}

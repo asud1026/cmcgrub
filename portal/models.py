@@ -53,14 +53,14 @@ class MultiSelectField(models.Field):
         value = getattr(self, field.attname)
         choicedict = dict(field.choices)
  
-    # def formfield(self, **kwargs):
-    #     # don't call super, as that overrides default widget if it has choices
-    #     defaults = {'required': not self.blank, 'label': capfirst(self.verbose_name),
-    #                 'help_text': self.help_text, 'choices': self.choices}
-    #     if self.has_default():
-    #         defaults['initial'] = self.get_default()
-    #     defaults.update(kwargs)
-    #     return MultiSelectFormField(**defaults)
+    def formfield(self, **kwargs):
+        # don't call super, as that overrides default widget if it has choices
+        defaults = {'required': not self.blank, 'label': capfirst(self.verbose_name),
+                    'help_text': self.help_text, 'choices': self.choices}
+        if self.has_default():
+            defaults['initial'] = self.get_default()
+        defaults.update(kwargs)
+        return MultiSelectFormField(**defaults)
 
     def get_prep_value(self, value):
         return value
@@ -137,29 +137,6 @@ class NoteForm(forms.ModelForm):
     class Meta:
         model = Note
         fields = ('user', 'main', 'side', 'payment', 'comments',)
-
-#added in so that email registration works, not sure if this is the right moedels file
-from django.db.models.signals import post_save
-from portal.models import UserProfile
-from django.contrib import admin
-from django.contrib.auth.models import User
-from django.contrib.auth.admin import UserAdmin
-
-def create_user_profile(sender, **kwargs):
-    """When creating a new user, make a profile for him or her."""
-    u = kwargs["instance"]
-    if not UserProfile.objects.filter(user=u):
-        UserProfile(user=u).save()
-
-post_save.connect(create_user_profile, sender=User)
-
-class UserProfile(models.Model):
-    avatar = models.ImageField("Profile Pic", upload_to="images/", blank=True, null=True)
-    posts = models.IntegerField(default=0)
-    user = models.ForeignKey(User, unique=True)
-    
-    def __unicode__(self):
-        return unicode(self.user)
 
 
         
