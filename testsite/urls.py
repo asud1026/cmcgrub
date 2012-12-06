@@ -44,4 +44,5 @@ urlpatterns = patterns('',
         
 	#Registration
 	(r'^accounts/', include('registration.backends.default.urls')),
+
 )

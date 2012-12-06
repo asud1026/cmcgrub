@@ -159,7 +159,7 @@ INSTALLED_APPS = (
 	'portal',
 
     #removed registration because no module with this name
-	#'django-registration/registration',
+	'registration',
 	'hub',
 )
 
@@ -187,3 +187,9 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'joenewbry@gmail.com'
+EMAIL_HOST_PASSWORD = 'letsplaysoccer'
+EMAIL_PORT = 587

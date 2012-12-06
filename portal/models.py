@@ -9,13 +9,13 @@ from django.utils.text import capfirst
 
 # Side Choices
 MAIN_CHOICES = (
-        ('Choice 1', 'Choice 1'),
-        ('Choice 2', 'Choice 2'),
+        ('Sandwhich', 'Sandwhich'),
+        ('Burger', 'Burger'),
     )
 
 SIDE_CHOICES = (
-        ('Choice 1', 'Choice 1'),
-        ('Choice 2', 'Choice 2'),
+        ('Lettuce', 'Lettuce'),
+        ('Tomato', 'Tomato'),
     )
 
 PAYMENT_CHOICES = (
