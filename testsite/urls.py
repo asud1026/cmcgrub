@@ -27,7 +27,7 @@ urlpatterns = patterns('',
 	(r'^logout/$', logout_page),
 	
 	#Web portal
-	(r'^portal/', include('portal.urls')),
+	(r'^order/', include('portal.urls')),
 
 	#Hub portal
 	(r'^hub/', include('hub.urls')),
@@ -44,5 +44,9 @@ urlpatterns = patterns('',
         
 	#Registration
 	(r'^accounts/', include('registration.backends.default.urls')),
+
+	#about and contact
+	(r'^about/', about_page),
+	(r'^contact/', contact_us_page),
 
 )

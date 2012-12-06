@@ -139,4 +139,14 @@ class NoteForm(forms.ModelForm):
         fields = ('user', 'main', 'side', 'payment', 'comments',)
 
 
+
+
+
+
+
+
+
+
+
+
         

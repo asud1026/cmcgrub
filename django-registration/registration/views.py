@@ -11,8 +11,7 @@ from django.template import RequestContext
 from registration.backends import get_backend
 
 # THIS CODE DISABLES CSRF >>>>> TURN IT ON EVENTUALLY!
-from django.views.decorators.csrf import csrf_exempt                                          
-@csrf_exempt                                     
+                                  
 
 def activate(request, backend,
              template_name='registration/activate.html',
