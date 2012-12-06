@@ -193,3 +193,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'joenewbry@gmail.com'
 EMAIL_HOST_PASSWORD = 'letsplaysoccer'
 EMAIL_PORT = 587
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
