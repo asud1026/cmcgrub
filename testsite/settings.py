@@ -194,6 +194,6 @@ EMAIL_HOST_USER = 'joenewbry@gmail.com'
 EMAIL_HOST_PASSWORD = 'letsplaysoccer'
 EMAIL_PORT = 587
 
-import dj_database_url
-print "DATABASE URL", dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+# import dj_database_url
+#  dj_database_url = HEROKU_POSTGRESQL_JADE_URL
+# DATABASES['default'] =  dj_database_url.config()
