@@ -14,27 +14,35 @@
 			<!--Incoming Orders Column-->	
 			<div class = "span6">
 				<h2> Incoming orders </h2>
-				
 				<!--Load all unapproved orders-->
 				{% for note in latest_notes_list %}
-			
-				<!--User and Payment Type-->
-				<div class = "span1" id = "{{ note.auto_id }}"> {{ note.user }} {{note.payment}}</div>
-				
-				<!--Main-->
-				<div class = "span1" id = "{{ note.auto_id }}"> {{ note.main }} </div>
-				
-				<!--Side-->
-				<div class = "span1" id = "{{ note.auto_id }}"> {{ note.side }} </div>
-				
-				<!--Comments-->
-				<div class = "span1" id = "second"> {{ note.comments }} </div>
-				
-				<!--Approve the order and place in current orders-->
-				<div class = "span1" id = "second"> 
-					<button class="btn btn-success btn-small" onClick = "test_hiding();" >Approve</button>
-					<button class="btn btn-danger btn-small">&nbsp;&nbsp;&nbsp;Deny&nbsp;&nbsp;&nbsp;</button>
-							</div> 
+
+					<!--check to see if the note has been approved or not-->
+					{% if note.approved == 0 %}
+
+					<!--Approve the order and place in current orders-->
+
+
+					<!--User and Payment Type-->
+					<div class = "span1" id = "{{ note.auto_id }}"> {{ note.user }} {{note.payment}}</div>
+					
+					<!--Main-->
+					<div class = "span1" id = "{{ note.auto_id }}"> {{ note.main }} </div>
+					
+					<!--Side-->
+					<div class = "span1" id = "{{ note.auto_id }}"> {{ note.side }} </div>
+					
+					<!--Comments-->
+					<div class = "span1" id = "second"> {{ note.comments }} </div>
+
+					<div class = "span1" id = "second"> 
+						<button class="btn btn-success btn-small" type="submit" onClick = "changeNoteValue(this.note, 1)">Approve</button>
+
+						<button class="btn btn-danger btn-small" type="submit" onClick = "changeNoteValue(this.note, -1)">&nbsp;&nbsp;&nbsp;Deny&nbsp;&nbsp;&nbsp;</button>
+					</div> 
+					
+					{% endif %}
+
 		{% endfor %}
 			</div>
 	
@@ -44,21 +52,27 @@
 			
 				<!--Load all approved orders-->
 				{% for note in latest_notes_list %}
+
+					{% if note.approved == 1 %}
+
+
+					<!--User and Payment Type-->
+					<div class = "span1"> {{ note.user }} {{note.payment}}</div>
+					
+					<!--Main-->
+					<div class = "span1"> {{ note.main }} </div>
+					
+					<!--Side-->
+					<div class = "span1"> {{ note.side }} </div>
+					
+					<!--Comments-->
+					<div class = "span1"> {{ note.comments }} </div>
+
+										<!--Send the user a notification-->
+					<div class = "span1"><button class="btn btn-primary btn-small"  type="submit" onClick="changeNoteValue(this.note, 2)">Finish Order</button></div>
+
+				{% endif %}
 				
-				<!--User and Payment Type-->
-				<div class = "span1"> {{ note.user }} {{note.payment}}</div>
-				
-				<!--Main-->
-				<div class = "span1"> {{ note.main }} </div>
-				
-				<!--Side-->
-				<div class = "span1"> {{ note.side }} </div>
-				
-				<!--Comments-->
-				<div class = "span1"> {{ note.comments }} </div>
-				
-				<!--Send the user a notification-->
-				<div class = "span1"><button class="btn btn-primary btn-small">Finish Order</button></div>
 			{% endfor %}
 			</div>
 		</div>
@@ -66,15 +80,14 @@
 </div>
 </body>
 
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script> 
-function test_hiding() {
-	var user = {{ note.user }}
-	  $("#{").hide();
+<SCRIPT TYPE="text/javascript">
+<!--
+function changeNoteValue(note, num)
+{
+	note.approved = num;
 }
-
-
-  </script>
+//-->
+</SCRIPT>
   
 
 

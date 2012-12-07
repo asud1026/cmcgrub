@@ -9,13 +9,13 @@ from django.utils.text import capfirst
 
 # Side Choices
 MAIN_CHOICES = (
-        ('Choice 1', 'Choice 1'),
-        ('Choice 2', 'Choice 2'),
+        ('Sandwhich', 'Sandwhich'),
+        ('Burger', 'Burger'),
     )
 
 SIDE_CHOICES = (
-        ('Choice 1', 'Choice 1'),
-        ('Choice 2', 'Choice 2'),
+        ('Lettuce', 'Lettuce'),
+        ('Tomato', 'Tomato'),
     )
 
 PAYMENT_CHOICES = (
@@ -109,6 +109,7 @@ class Note(models.Model):
     side =  MultiSelectField(max_length=250, blank=True, choices=SIDE_CHOICES)
     payment = MultiSelectField(max_length=250, blank=True, choices=PAYMENT_CHOICES)
     comments = models.TextField()
+    approved = 0;
     def __unicode__(self):
        return self.main
     def save(self, *args, **kwargs):
@@ -131,12 +132,22 @@ class NoteForm(forms.ModelForm):
     main = MultiSelectFormField(choices=MAIN_CHOICES,
     widget=forms.Select())
     side = MultiSelectFormField(choices=SIDE_CHOICES,
-    widget=forms.Select())
+    widget=forms.CheckboxSelectMultiple)
     payment = MultiSelectFormField(choices=PAYMENT_CHOICES,
     widget=forms.Select())
     class Meta:
         model = Note
-        fields = ('user', 'main', 'side', 'payment', 'comments',)
+        fields = ('user','main', 'side', 'payment', 'comments',)
+
+
+
+
+
+
+
+
+
+
 
 
         

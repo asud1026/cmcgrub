@@ -9,7 +9,9 @@
 			</strong>
 		</p>
 	{% endif %}
-
+	<header>
+        <h1>Place your order {{ user.username }}</h1>
+    </header>
 	<form action="add/" method="post">
 		{% csrf_token %}
 			{{ form.as_p }}

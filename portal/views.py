@@ -29,9 +29,9 @@ def add(request):
         if form.is_valid(): # All validation rules pass
             # Process the data in form.cleaned_data
             form.save()
-            return HttpResponseRedirect('/portal/confirm/') # Redirect after POST
+            return HttpResponseRedirect('/order/confirm/') # Redirect after POST
 	else:
-	    return HttpResponseRedirect('/portal/') 
+	    return HttpResponseRedirect('/order/') 
     else:
      	    form = NoteForm() # An unbound form
     return render_to_response('portal/add.html', {'form': form,}, context_instance=RequestContext(request))

@@ -6,19 +6,15 @@ Main page to authenticate users. Not sure if this is in the right spot
 
 {% endcomment %}
 
-{% block head %}
-	<title>Claremont Grub | Login</title>
-{% endblock %}
-
 {% block body %}
+<div class="container">
 	<header>
-		<h1>Claremont Grub</h1>
-		<h2>Login Page</h2>
+		<h2>Login</h2>
 	</header>
 	
 	<section>
 		{% if form.errors %}
-			<p>The cave trolls have denied entrance. Try another password. </p>
+			<p>The hubbly cave trolls have denied entrance. Try another password. </p>
 		{% endif %}
 		
 		<form method="post" action=".">{% csrf_token %}
@@ -37,5 +33,12 @@ Main page to authenticate users. Not sure if this is in the right spot
 			{% endif %}
 			<input type="submit" value="login" />
 		</form>
+
 	</section>
-{% endblock %}
+
+	<section>
+		<p> New? Create an account <a href="/accounts/register">here</a> </p>
+	</section>
+</div>
+	
+{% endblock %}x

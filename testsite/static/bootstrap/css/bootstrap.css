@@ -5890,4 +5890,13 @@ a.badge:hover {
 
 .affix {
   position: fixed;
+
+
+
+
+  /* Hubbly Crew edits to CSS*/
+
+#login_page {
+  margin-left: 100px;
 }
+
