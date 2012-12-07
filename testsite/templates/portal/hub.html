@@ -8,9 +8,9 @@
 <!--Checks to see if there are any orders-->
 {% if latest_notes_list %}
 
-<div class="column">	
+<div class="row">	
 	<div class = "span12">
-		<div class="column">
+		<div class="row">
 			<!--Incoming Orders Column-->	
 			<div class = "span6">
 				<h2> Incoming orders </h2>
@@ -21,13 +21,7 @@
 					{% if note.approved == 0 %}
 
 					<!--Approve the order and place in current orders-->
-					<div class = "span1" id = "second"> 
-						<button class="btn btn-success btn-small" type="submit" onClick = "changeNoteValue(this.note, 1)">Approve</button>
 
-
-
-						<button class="btn btn-danger btn-small" type="submit" onClick = "changeNoteValue(this.note, -1)">&nbsp;&nbsp;&nbsp;Deny&nbsp;&nbsp;&nbsp;</button>
-					</div> 
 
 					<!--User and Payment Type-->
 					<div class = "span1" id = "{{ note.auto_id }}"> {{ note.user }} {{note.payment}}</div>
@@ -40,6 +34,12 @@
 					
 					<!--Comments-->
 					<div class = "span1" id = "second"> {{ note.comments }} </div>
+
+					<div class = "span1" id = "second"> 
+						<button class="btn btn-success btn-small" type="submit" onClick = "changeNoteValue(this.note, 1)">Approve</button>
+
+						<button class="btn btn-danger btn-small" type="submit" onClick = "changeNoteValue(this.note, -1)">&nbsp;&nbsp;&nbsp;Deny&nbsp;&nbsp;&nbsp;</button>
+					</div> 
 					
 					{% endif %}
 
@@ -54,8 +54,7 @@
 				{% for note in latest_notes_list %}
 
 					{% if note.approved == 1 %}
-					<!--Send the user a notification-->
-					<div class = "span1"><button class="btn btn-primary btn-small"  type="submit" onClick="changeNoteValue(this.note, 2)">Finish Order</button></div>
+
 
 					<!--User and Payment Type-->
 					<div class = "span1"> {{ note.user }} {{note.payment}}</div>
@@ -68,6 +67,9 @@
 					
 					<!--Comments-->
 					<div class = "span1"> {{ note.comments }} </div>
+
+										<!--Send the user a notification-->
+					<div class = "span1"><button class="btn btn-primary btn-small"  type="submit" onClick="changeNoteValue(this.note, 2)">Finish Order</button></div>
 
 				{% endif %}
 				
