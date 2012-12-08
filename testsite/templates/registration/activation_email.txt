@@ -1,6 +1,9 @@
 {% load i18n %}
-{% trans "Follow the link below to activate your account at " %} {{ site.name }}:
+{% trans "Welcome to Hubbly! Follow the link below to activate your account at " %} {{ site.name }}:
 
-http://{{ site.domain }}{% url registration_activate activation_key %}
+{{ site.domain }}{% url registration_activate activation_key %}
 
 {% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
+
+Love,
+The Hubbly Crew

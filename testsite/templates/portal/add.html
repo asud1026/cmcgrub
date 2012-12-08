@@ -10,7 +10,7 @@
 		</p>
 	{% endif %}
 	<header>
-        <h1>Place your order {{ user.username }}</h1>
+        <h1>Place your order {{ user.username }}  {{ user.phone }}</h1>
     </header>
 	<form action="add/" method="post">
 		{% csrf_token %}

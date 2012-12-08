@@ -26,7 +26,9 @@ urlpatterns = patterns('',
 	(r'^login/$', 'django.contrib.auth.views.login'),
 	(r'^logout/$', logout_page),
 	
-	#Web portal
+	#Web portal 
+	#Change at some point so this is only one mapping not two
+	(r'^portal/', include('portal.urls')),
 	(r'^order/', include('portal.urls')),
 
 	#Hub portal

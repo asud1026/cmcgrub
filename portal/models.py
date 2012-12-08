@@ -44,7 +44,7 @@ class MultiSelectField(models.Field):
     __metaclass__ = models.SubfieldBase
  
     def get_internal_type(self):
-        return "CharField"
+        return "TextField"
  
     def get_choices_default(self):
         return self.get_choices(include_blank=False)
@@ -105,9 +105,9 @@ class MultiSelectField(models.Field):
 class Note(models.Model):
     user = models.ForeignKey(User)
     pub_date = models.DateTimeField(auto_now=True)
-    main = MultiSelectField(max_length=250, blank=True, choices=MAIN_CHOICES)
-    side =  MultiSelectField(max_length=250, blank=True, choices=SIDE_CHOICES)
-    payment = MultiSelectField(max_length=250, blank=True, choices=PAYMENT_CHOICES)
+    main = models.CharField(max_length=250)#MultiSelectField(max_length=250, blank=False, choices=MAIN_CHOICES)
+    side =  models.CharField(max_length=250)
+    payment = models.CharField(max_length=250)
     comments = models.TextField()
     approved = 0;
     def __unicode__(self):
@@ -132,7 +132,7 @@ class NoteForm(forms.ModelForm):
     main = MultiSelectFormField(choices=MAIN_CHOICES,
     widget=forms.Select())
     side = MultiSelectFormField(choices=SIDE_CHOICES,
-    widget=forms.CheckboxSelectMultiple)
+    widget= forms.Select())#breaks so I changed itforms.CheckboxSelectMultiple)
     payment = MultiSelectFormField(choices=PAYMENT_CHOICES,
     widget=forms.Select())
     class Meta:
