@@ -6,8 +6,8 @@
 <h1> The Hub </h1>
 <body>
 <!--Checks to see if there are any orders-->
-{% if latest_notes_list %}
 
+{% if latest_notes_list %}
 <div class="row">	
 	<div class = "span12">
 		<div class="row">
@@ -24,19 +24,20 @@
 
 
 					<!--User and Payment Type-->
-					<div class = "span1" id = "{{ note.auto_id }}"> {{ note.user }} {{note.payment}}</div>
+					<div class = "span1" id = "1"> {{ note.user }} {{note.payment}}</div>
 					
 					<!--Main-->
-					<div class = "span1" id = "{{ note.auto_id }}"> {{ note.main }} </div>
+					<div class = "span1" id = "2"> {{ note.main }} </div>
 					
 					<!--Side-->
-					<div class = "span1" id = "{{ note.auto_id }}"> {{ note.side }} </div>
+					<div class = "span1" id = "3"> {{ note.side }} </div>
 					
 					<!--Comments-->
-					<div class = "span1" id = "second"> {{ note.comments }} </div>
+					<div class = "span1" id = "4">  {{ note.comments }} </div>
 
-					<div class = "span1" id = "second"> 
-						<button class="btn btn-success btn-small" type="submit" onClick = "changeNoteValue(this.note, 1)">Approve</button>
+					<div class = "span1" id = "5"> 
+					
+						<button class="btn btn-success btn-small" type="submit" onClick = "switchid()">Approve</button>
 
 						<button class="btn btn-danger btn-small" type="submit" onClick = "changeNoteValue(this.note, -1)">&nbsp;&nbsp;&nbsp;Deny&nbsp;&nbsp;&nbsp;</button>
 					</div> 
@@ -53,23 +54,23 @@
 				<!--Load all approved orders-->
 				{% for note in latest_notes_list %}
 
-					{% if note.approved == 1 %}
+					{% if note.approved == 0 %}
 
 
 					<!--User and Payment Type-->
-					<div class = "span1"> {{ note.user }} {{note.payment}}</div>
+					<div class = "span1" id = "6"> {{ note.user }} {{note.payment}}</div>
 					
 					<!--Main-->
-					<div class = "span1"> {{ note.main }} </div>
+					<div class = "span1" id = "7"> {{ note.main }} </div>
 					
 					<!--Side-->
-					<div class = "span1"> {{ note.side }} </div>
+					<div class = "span1" id = "8"> {{ note.side }} </div>
 					
 					<!--Comments-->
-					<div class = "span1"> {{ note.comments }} </div>
+					<div class = "span1" id = "9"> {{note.extras}} {{ note.comments }} </div>
 
 										<!--Send the user a notification-->
-					<div class = "span1"><button class="btn btn-primary btn-small"  type="submit" onClick="changeNoteValue(this.note, 2)">Finish Order</button></div>
+					<div class = "span1" id = "10"><button class="btn btn-primary btn-small"  type="submit" onClick="switchid2()">Finish Order</button></div>
 
 				{% endif %}
 				
@@ -80,17 +81,85 @@
 </div>
 </body>
 
+
+
 <SCRIPT TYPE="text/javascript">
 <!--
-function changeNoteValue(note, num)
-{
-	note.approved = num;
+//here you place the ids of every element you want.
+
+window.onload = function()
+                {
+                   switchid2();
+                };
+                
+                
+var ids=new Array(1,2,3,4,5);
+var ids2=new Array(6,7,8,9,10);
+
+function switchid(){	
+	hideallids();
+	showallids2();
 }
+
+function switchid2(){	
+	hideallids2();
+}
+
+function hideallids(){
+	//loop through the array and hide each element by id
+	for (var i=0;i<5;i++){
+		hidediv(ids[i]);
+	}		  
+}
+
+function showallids2(){
+	//loop through the array and hide each element by id
+	for (var i=0;i<5;i++){
+		showdiv(ids2[i]);
+	}		  
+}
+
+function hideallids2(){
+	//loop through the array and hide each element by id
+	for (var i=0;i<5;i++){
+		hidediv(ids2[i]);
+	}		  
+}
+
+function hidediv(id) {
+	//safe function to hide an element with a specified id
+	if (document.getElementById) { // DOM3 = IE5, NS6
+		document.getElementById(id).style.display = 'none';
+	}
+	else {
+		if (document.layers) { // Netscape 4
+			document.id.display = 'none';
+		}
+		else { // IE 4
+			document.all.id.style.display = 'none';
+		}
+	}
+}
+
+function showdiv(id) {
+	//safe function to show an element with a specified id
+		  
+	if (document.getElementById) { // DOM3 = IE5, NS6
+		document.getElementById(id).style.display = 'block';
+	}
+	else {
+		if (document.layers) { // Netscape 4
+			document.id.display = 'block';
+		}
+		else { // IE 4
+			document.all.id.style.display = 'block';
+		}
+	}
+}
+ 
+
 //-->
 </SCRIPT>
-  
-
-
 
 {% endif %}
-{% endblock %}
+{% endblock %}  

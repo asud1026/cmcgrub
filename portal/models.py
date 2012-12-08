@@ -9,18 +9,44 @@ from django.utils.text import capfirst
 
 # Side Choices
 MAIN_CHOICES = (
-        ('Sandwhich', 'Sandwhich'),
+        ('Salami', 'Salami'),
+        ('Ham', 'Ham'),
+        ('Turkey', 'Turkey'),
+        ('Chix Sandwich Melt', 'Chix Sandwich Melt'),
+        ('Tri Tip Sandwich', 'Tri Tip Sandwich'),
+        ('Tuna Melt', 'Tuna Melt'),
+        ('Philly Cheese', 'Philly Cheese'),
+        ('Club', 'Club'),
+        ('B.L.T.', 'B.L.T.'),
+        ('Tuna', 'Tuna'),
+        ('Grilled Cheese', 'Grilled Cheese'),
+        ('Patty Melt', 'Patty Melt'),
         ('Burger', 'Burger'),
+        ('Cheese Burger', 'Cheese Burger'),
+        ('Garder Burger', 'Garden Burger'),
+        ('Chicken Burger', 'Chicken Burger')
     )
 
 SIDE_CHOICES = (
-        ('Lettuce', 'Lettuce'),
-        ('Tomato', 'Tomato'),
-    )
+        ('Fries', 'Fries'),
+        ('Chips', 'Chips'),
+        ('Macaroni Salad', 'Macaroni Salad'),
+        ('Green Mix', 'Green Mix'),
+        ('Potato Salad', 'Potato Salad'),
+        ('Fruit Slices', 'Fruit Slices'),
+        ('Onion Rings', 'Onion Rings'),
+        ('Cheese', 'Cheese'),
+        ('Avacado', 'Avacado'),
+        ('Curly Fries', 'Curly Fries'),
+        ('Bacon', 'Bacon'),
+        ('Meat', 'Meat'),
+        ('None', 'None'),
+)
 
 PAYMENT_CHOICES = (
         ('Flex', 'Flex'),
         ('Claremont Cash', 'Claremont Cash'),
+        ('Meal Replacement', 'Meal Replacement'),
     )
 
 # Multiple Selection Form
@@ -30,7 +56,7 @@ class MultiSelectFormField(forms.MultipleChoiceField):
     def __init__(self, *args, **kwargs):
         self.max_choices = kwargs.pop('max_choices', 8)
         super(MultiSelectFormField, self).__init__(*args, **kwargs)
- 
+
     def clean(self, value):
         if not value and self.required:
             raise forms.ValidationError(self.error_messages['required'])
@@ -130,14 +156,15 @@ class NoteForm(forms.ModelForm):
 
     #main = models.TextField(max_length=1, choices=MAIN_CHOICES, null=True)
     main = MultiSelectFormField(choices=MAIN_CHOICES,
-    widget=forms.Select())
+    widget=forms.Select(),error_messages={'required': 'Please choose a main:'})
     side = MultiSelectFormField(choices=SIDE_CHOICES,
-    widget= forms.Select())#breaks so I changed itforms.CheckboxSelectMultiple)
+    widget=forms.Select(),error_messages={'required': 'Please choose a side:'})#breaks so I changed itforms.CheckboxSelectMultiple)
     payment = MultiSelectFormField(choices=PAYMENT_CHOICES,
-    widget=forms.Select())
+    widget=forms.Select(),error_messages={'required': 'Please choose a payment type:'})
     class Meta:
         model = Note
-        fields = ('user','main', 'side', 'payment', 'comments',)
+
+        fields = ('user','main', 'side','payment', 'comments',)
 
 
 

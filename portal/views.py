@@ -40,3 +40,6 @@ def add(request):
 def confirm(request):
     return render_to_response('portal/confirm.html')
 
+def approve(request, num):
+	approve = num
+
