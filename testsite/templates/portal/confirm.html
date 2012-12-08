@@ -1,4 +1,6 @@
-  <h2> Confirmation Page </h2>
+{% extends "base.html" %}
+
+<!--
 <head>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   
@@ -21,8 +23,16 @@
   p.hilite { background:gray; }
   </style>
 </head>
+-->
+{% block body %}
 <body>
-  <p>First Paragraph</p>
-  <p>Second Paragraph</p>
-  <p>Yet one more Paragraph</p>
+  <div class="container">
+
+    <h2> Your order has been submitted! </h2>
+    <h5>We recommend you pick up your food in 10-15 minutes.</h5>
+  </div>
 </body>
+
+
+
+{% endblock %}

@@ -8,8 +8,12 @@ Main page to authenticate users. Not sure if this is in the right spot
 
 {% block body %}
 <div class="container">
+	<p><h1>Introducing Hubbly<h1></p>
+		<p><h5>What'll you do with <em>your</em> free time?</h5></p>
+	<p>Save time and skip lines. Order online from the Hub Grill.</p><p>With Hubbly, simply place your order using your computer or smartphone and pick</p><p>it up when it's ready. Choose from Claremont Cash or Flex payment options and</p><p>all your favorite Hub snacks.</p>
+<div class="logindetails"
 	<header>
-		<h2>Login</h2>
+		<h3>Login to Hubbly!</h3>
 	</header>
 	
 	<section>
@@ -31,7 +35,8 @@ Main page to authenticate users. Not sure if this is in the right spot
 			{% else %}
 				<input type="hidden" name="next" value="/portal/" />
 			{% endif %}
-			<input type="submit" value="login" />
+			<input type="submit" value="Login" />
+			<a href="/accounts/register"><input type="button" value="Register" /></a>
 		</form>
 
 	</section>
@@ -40,5 +45,6 @@ Main page to authenticate users. Not sure if this is in the right spot
 		<p> New? Create an account <a href="/accounts/register">here</a> </p>
 	</section>
 </div>
+</div>
 	
-{% endblock %}x
+{% endblock %}

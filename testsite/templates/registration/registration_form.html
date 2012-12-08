@@ -3,11 +3,13 @@
 {% load i18n %}
 
 {% block head %}
+<div class="container">
 <form method="post" action="."> {% csrf_token %}
   {{ form.as_p }}
 
   <input type="submit" value="{% trans 'Submit' %}" />
 </form>
+</div>
 {% endblock %}
 
 
