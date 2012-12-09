@@ -12,22 +12,31 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-#'default': {    
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-#        'NAME': 'grubcrew',                      # Or path to database file if using sqlite3.
-#        'USER': 'joe',                      # Not used with sqlite3.
-#        'PASSWORD': 'freba21',                  # Not used with sqlite3.
-#        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-#        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
-#    } ,
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/evan/desktop/python/virtualenvs/django-1.4-env/testsite/sqlite3.sql',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
+'local': {    
+       'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+       'NAME': 'grubcrew',                      # Or path to database file if using sqlite3.
+       'USER': 'joe',                      # Not used with sqlite3.
+       'PASSWORD': 'freba21',                  # Not used with sqlite3.
+       'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+       'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
+   } ,
+
+'default': {    
+       'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+       'NAME': 'grubcrew',                      # Or path to database file if using sqlite3.
+       'USER': 'joe',                      # Not used with sqlite3.
+       'PASSWORD': 'freba21',                  # Not used with sqlite3.
+       'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+       'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
+   } ,
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+    #     'NAME': '/Users/evan/desktop/python/virtualenvs/django-1.4-env/testsite/sqlite3.sql',                      # Or path to database file if using sqlite3.
+    #     'USER': '',                      # Not used with sqlite3.
+    #     'PASSWORD': '',                  # Not used with sqlite3.
+    #     'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+    #     'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    # }
 }
 
 # Local time zone for this installation. Choices can be found here:
@@ -194,6 +203,6 @@ EMAIL_HOST_USER = 'joenewbry@gmail.com'
 EMAIL_HOST_PASSWORD = 'letsplaysoccer'
 EMAIL_PORT = 587
 
-# import dj_database_url
-#  dj_database_url = HEROKU_POSTGRESQL_JADE_URL
-# DATABASES['default'] =  dj_database_url.config()
+import dj_database_url
+
+DATABASES['default'] =  dj_database_url.config(default="postgres://cygnzzyjsqolpo:3WK12iIyDt8LFL0m6bifkn96fE@ec2-54-243-223-183.compute-1.amazonaws.com:5432/d297mirlbdr18o")
