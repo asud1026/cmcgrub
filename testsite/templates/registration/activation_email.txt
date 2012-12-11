@@ -1,7 +1,7 @@
 {% load i18n %}
 {% trans "Welcome to Hubbly! Follow the link below to activate your account at " %} {{ site.name }}:
 
-{{ http://powerful-bayou-4139.herokuapp.com/ }}{% url registration_activate activation_key %}
+{{ site.domain }}{% url registration_activate activation_key %}
 
 {% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
 
